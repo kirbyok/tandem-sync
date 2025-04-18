@@ -1,0 +1,30 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+ptpython = "*"
+
+[packages]
+tconnectsync = {path = "."}
+bs4 = "*"
+arrow = "==1.2.3"
+lxml = "*"
+python-dotenv = "==0.21.1"
+requests-mock = "*"
+pysocks = "*"
+urllib3 = "==1.26.6"
+requests = {extras = ["socks"], version = "==2.31.0"}
+requests-oidc = "*"
+PyJWT = "==2.8.0"
+cryptography = "*"
+dataclasses-json = "*"
+cffi = ">=1.15.1"
+typing-extensions = "*"
+
+[scripts]
+tconnectsync = "python3 main.py"
+test = "python3 -m unittest discover -vv"
+build_events = "bash -c 'cd tconnectsync/eventparser && python3 build_events.py > events.py'"
+lint = "bash -c 'flake8 . --count --select=E9,F63,F7,F82 && flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 && echo PASS'"
